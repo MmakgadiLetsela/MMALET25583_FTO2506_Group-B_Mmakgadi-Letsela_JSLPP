@@ -420,6 +420,26 @@ form select {
   background-size: 1.4rem;
   padding-right: 1rem;
 }
+.modal-footer{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#save-changes-btn, #delete-task-btn, #create-task-btn{
+    background-color: var(--purple-color);
+    border-radius: 6.25rem;
+    color: var(--primary-color);
+    font-size: .8125rem;
+    font-weight: bold;
+    padding: .9375rem 1.875rem;
+    width: 12.5rem;
+    height: 2.5rem;
+    border: none;
+}
+#delete-task-btn{
+    background-color: #EA5555;
+}
 
 /* ========================
    Responsive Styles
