@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;1,400&display=swap");
 /* ========================
    Global & Root Variables
 ======================== */
@@ -72,7 +73,7 @@ h4 {
   align-items: center;
   gap: 10px; /* Space between icon and text */
   background-color: #635fc7;
-  color: #fff;
+  color: var(--primary-color);
   border: none;
   border-radius: 0 100px 100px 0; /* Pill shape only on right side */
   height: 48px;
@@ -82,6 +83,21 @@ h4 {
   font-weight: bold;
   cursor: pointer;
   overflow: hidden; /* Prevents overflowed text/icons from showing */
+}
+#theme-toggle{
+    height: 3rem;
+    width: 15.6875rem;
+    background-color: var(--secondary-color);
+    border-radius: .625rem;
+
+}
+#hide-sidebar-btn{
+    background-color: var(--secondary-color);
+    height: 3.125rem;
+    width: 17.25rem;
+    border-bottom-right-radius: 6.25rem;
+    border-top-right-radius: 6.25rem;
+    border: none;
 }
 
 /* ===============
@@ -112,12 +128,12 @@ header {
 #add-task {
 background-color: #635FC7;
 border-radius: 6.25rem;
-color: #ffffff;
+color: var(--primary-color);
 font-size: 15px;
 font-weight: bold;
 padding: .9375rem;
 width: 10.25rem;
-height: 48px;
+height: 3rem;
 border: none;
 }
 #add-task:hover{

@@ -27,8 +27,29 @@
 
       <div class="boards-nav-links-div" id="boards-nav-links-div">
         <h4 id="headline-sidepanel">ALL BOARDS (1)</h4>
-        <button class="board-btn">Launch Career</button>
+        <button type="button" class="board-btn">Launch Career</button>
       </div>
+        <section id="interactive-section">
+            <div id="theme-toggle">
+                <img
+                    id="light-theme-icon"
+                    src="./assets/icon-dark-theme.svg"
+                    alt="light-theme-icon"
+                />
+                <div id="theme-toggle-circle"></div>
+                <img
+                    id="dark-theme-icon"
+                    src="./assets/icon-light-theme.svg"
+                    alt="dark-theme-icon"
+                />
+            </div>
+            <button id="hide-sidebar-btn" type="button">
+                <img
+                    src="./assets/icon-hide-sidebar.svg"
+                    alt="hide-sidebar-icon"
+                />
+            </button>
+        </section>
     </nav>
 
     <!-- Main Layout: Header with board title, add task button, and main content area for task columns. -->
@@ -44,7 +65,7 @@
             Launch Career
           </h2>
         </div>
-        <button id="add-task">Add New Task</button>
+        <button id="add-task" type="button">Add New Task</button>
       </header>
 
       <div class="container">
