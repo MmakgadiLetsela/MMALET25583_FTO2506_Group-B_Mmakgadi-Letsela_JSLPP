@@ -30,6 +30,19 @@ body {
   font-size: 1rem; /* Base font size for rem scaling */
 }
 
+.dark-mode {
+    --primary-color: #2B2C37;
+    --secondary-color: #20212C;
+    --primary-font-color: #FFFFFF;
+    --secondary-font-color: #828fa3;
+}
+
+#header-board-name.dark-mode{
+    color: #FFFFFF;
+}
+
+
+
 /* ================
    Sidebar Layout
 ================ */
@@ -121,6 +134,10 @@ h4 {
     border-radius: 6.25rem;
 }
 
+#theme-toggle-button:hover{
+    cursor: pointer;
+}
+
 #toggle-circle{
     height: .875rem;
     width: .875rem;
@@ -129,7 +146,6 @@ h4 {
     margin: 3px
 
 }
-
 
 
 #hide-sidebar-btn{
@@ -144,6 +160,11 @@ h4 {
     gap: 45px
 
 }
+
+#hide-sidebar-btn:hover{
+    cursor: pointer;
+}
+
 
 #hide-sidebar-icon{
     height: 1.5rem;
@@ -188,7 +209,7 @@ header {
   font-size: 1.875rem;
   font-weight: 600;
 }
-#add-task {
+#add-new-task {
 background-color: var(--purple-color);
 border-radius: 6.25rem;
 color: var(--primary-color);
@@ -483,14 +504,22 @@ form select {
 
 /******** Mobile ********/
 @media screen and (max-width: 576px) {
-  .card-column-main {
-    grid-template-columns: minmax(
-      0,
-      380px
-    ); /* Stack columns in single column */
-  }
+   .card-column-main {
+    grid-template-columns: minmax(0, 23.75rem); 
+    /* Stack columns in single column */
+  } 
 
   .column-div {
     padding: 1.5rem;
+  }
+  #add-new-task {
+    width: 2.0625rem;
+    height: 2.0625rem;
+    border-radius: 50%;
+    display: none;
+  }
+
+  .plus-sign{
+    display: inline;
   }
 }
