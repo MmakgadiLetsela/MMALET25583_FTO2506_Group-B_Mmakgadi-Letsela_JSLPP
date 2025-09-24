@@ -84,13 +84,25 @@ h4 {
   cursor: pointer;
   overflow: hidden; /* Prevents overflowed text/icons from showing */
 }
+
+#interactive-section{
+    margin: auto 0 1.25rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: .9375rem;
+
+} 
+
 #theme-toggle{
     height: 3rem;
-    width: 15.6875rem;
+    width: 15rem;
     background-color: var(--secondary-color);
     border-radius: .625rem;
+    align-self: center;
+    margin-right: 10px
+} 
 
-}
+
 #hide-sidebar-btn{
     background-color: var(--secondary-color);
     height: 3.125rem;
