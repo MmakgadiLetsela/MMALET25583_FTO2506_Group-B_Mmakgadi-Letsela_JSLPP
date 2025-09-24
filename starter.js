@@ -55,6 +55,18 @@ function openTaskModal(task) {
 
   modal.showModal();
 }
+function openNewTaskModal() {
+  const newModal = document.getElementById("new-task-modal");
+  const titleInput = document.getElementById("task-title");
+  const descInput = document.getElementById("task-desc");
+  const statusSelect = document.getElementById("task-status");
+
+  titleInput.value = "task.title";
+  descInput.value = "task.description";
+  statusSelect.value = "task.status";
+}
+
+
 
 /**
  * Sets up modal close behavior.
@@ -73,7 +85,7 @@ function setupModalCloseHandler() {
  */
 function initTaskBoard() {
   clearExistingTasks();
-  renderTasks(initialTasks);
+  renderTasks();
   setupModalCloseHandler();
 }
 
