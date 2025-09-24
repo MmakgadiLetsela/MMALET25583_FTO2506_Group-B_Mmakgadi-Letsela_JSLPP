@@ -38,20 +38,6 @@ function clearExistingTasks() {
   });
 }
 
-/**
- * Renders all tasks from initial data to the UI.
- * Groups tasks by status and appends them to their respective columns.
- * @param {Array<Object>} tasks - Array of task objects.
- */
-function renderTasks(tasks) {
-  tasks.forEach((task) => {
-    const container = getTaskContainerByStatus(task.status);
-    if (container) {
-      const taskElement = createTaskElement(task);
-      container.appendChild(taskElement);
-    }
-  });
-}
 
 /**
  * Opens the modal dialog with pre-filled task details.

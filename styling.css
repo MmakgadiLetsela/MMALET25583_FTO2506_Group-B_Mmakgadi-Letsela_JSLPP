@@ -109,6 +109,21 @@ header {
   font-size: 1.875rem;
   font-weight: 600;
 }
+#add-task {
+background-color: #635FC7;
+border-radius: 6.25rem;
+color: #ffffff;
+font-size: 15px;
+font-weight: bold;
+padding: .9375rem;
+width: 10.25rem;
+height: 48px;
+border: none;
+}
+#add-task:hover{
+    cursor: pointer;
+}
+
 
 .header-name-div {
   display: flex;
