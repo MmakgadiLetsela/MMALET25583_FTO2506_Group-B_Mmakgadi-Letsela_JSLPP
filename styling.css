@@ -148,7 +148,7 @@ h4 {
 }
 
 
-#hide-sidebar-btn{
+#sidebar-toggle{
     background-color: var(--secondary-color);
     height: 3.125rem;
     width: 17.25rem;
@@ -157,11 +157,16 @@ h4 {
     border: none;
     display: flex;
     flex-direction: row;
-    gap: 45px
+    gap: 45px;
+    transition: transform 0.5s ease;
+
+}
+#sidebar-toggle.hidden{
+transform: translateX(-100%)
 
 }
 
-#hide-sidebar-btn:hover{
+#sidebar-toggle:hover{
     cursor: pointer;
 }
 

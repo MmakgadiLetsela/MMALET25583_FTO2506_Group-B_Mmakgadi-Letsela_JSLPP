@@ -137,12 +137,19 @@ function deleteTask(taskId) {
   // Save the new list to localStorage
   localStorage.setItem('tasks', JSON.stringify(updatedTasks));
 
-  // Re-render the board
+  
   renderTasks(updatedTasks);
 
-  // Close the modal
+  
   document.getElementById('task-modal').close();
 }
+
+
+// Sidebar toggle functionality
+ document.getElementById('sidebar-toggle').addEventListener('click', () => {
+  const sidebar = document.getElementById('side-bar-div');
+  sidebar.classList.toggle('hidden'); 
+});
 
 
 
