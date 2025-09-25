@@ -119,7 +119,7 @@ function saveTaskChanges(taskId) {
   }
 
   localStorage.setItem('tasks', JSON.stringify(tasks));
-  renderTasks(updatedTasks);
+  renderTasks(tasks);
   document.getElementById('task-modal').close()
 }
 
