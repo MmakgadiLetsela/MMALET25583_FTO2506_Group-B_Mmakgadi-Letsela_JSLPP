@@ -1,42 +1,47 @@
-/**
- * Creates a single task DOM element.
- * @param {Object} task - Task data object.
- * @param {string} task.title - Title of the task.
- * @param {number} task.id - Unique task ID.
- * @param {string} task.status - Status column: 'todo', 'doing', or 'done'.
- * @returns {HTMLElement} The created task div element.
- */
-function createTaskElement(task) {
-  const taskDiv = document.createElement("div");
-  taskDiv.className = "task-div";
-  taskDiv.textContent = task.title;
-  taskDiv.dataset.taskId = task.id;
 
-  taskDiv.addEventListener("click", () => {
-    openTaskModal(task);
+
+// Fetch tasks from the backend API when the page loads
+function fetchTasks() {
+  fetch('https://jsl-kanban-api.vercel.app/')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch tasks');
+      }
+      return response.json();
+    })
+    .then(tasks => {
+      renderTasks(tasks); // Function to display tasks in the UI
+    })
+    .catch(error => {
+      showErrorMessage("Unable to load tasks. Please try again.");
+      console.error(error);
+    });
+}; // If there is an error fetching tasks, show an error message
+
+function renderTasks(tasks) {
+
+  const todoColumn = document.querySelector('[data-status="todo"]');
+  const doingColumn = document.querySelector('[data-status="doing"]');
+  const doneColumn = document.querySelector('[data-status="done"]');
+
+  tasks.forEach(task => {
+    
+    const taskCard = document.createElement('div');
+    taskCard.classList.add('task-card');
+    taskCard.textContent = task.title;
+
+   
+    if (task.status === 'todo') {
+      todoColumn.appendChild(taskCard);
+    } else if (task.status === 'doing') {
+      doingColumn.appendChild(taskCard);
+    } else if (task.status === 'done') {
+      doneColumn.appendChild(taskCard);
+    }
   });
+} // Renders tasks from the API into their respective columns based on status
 
-  return taskDiv;
-}
 
-/**
- * Finds the task container element based on task status.
- * @param {string} status - The task status ('todo', 'doing', or 'done').
- * @returns {HTMLElement|null} The container element, or null if not found.
- */
-function getTaskContainerByStatus(status) {
-  const column = document.querySelector(`.column-div[data-status="${status}"]`);
-  return column ? column.querySelector(".tasks-container") : null;
-}
-
-/**
- * Clears all existing task-divs from all task containers.
- */
-function clearExistingTasks() {
-  document.querySelectorAll(".tasks-container").forEach((container) => {
-    container.innerHTML = "";
-  });
-}
 
 
 /**
@@ -55,6 +60,12 @@ function openTaskModal(task) {
 
   modal.showModal();
 }
+const newModal = document.getElementById("new-task-modal");
+const addNewTask = document.getElementById("add-new-task")
+addNewTask.addEventListener("click", openNewTaskModal);
+
+
+
 function openNewTaskModal() {
   const newModal = document.getElementById("new-task-modal");
   const titleInput = document.getElementById("task-title");
@@ -80,20 +91,11 @@ function setupModalCloseHandler() {
   });
 }
 
+
 /**
- * Initializes the task board and modal handlers.
- */
-function initTaskBoard() {
-  clearExistingTasks();
-  renderTasks();
-  setupModalCloseHandler();
-}
-
-// Wait until DOM is fully loaded
-document.addEventListener("DOMContentLoaded", initTaskBoard);
-
-
-
+ * Creates a dark mode event triggered when the toggle is clicked
+ * 
+ * */
 // Dark mode toggle
 const darkModeToggle = document.getElementById("theme-toggle-button");
 darkModeToggle.addEventListener("click", () => {
@@ -106,3 +108,20 @@ darkModeToggle.addEventListener("click", () => {
     logo.src = "./assets/logo-light.svg";
   }
 });  // swap logo image based on mode
+
+
+/**
+ * Initializes the task board and modal handlers.
+ */
+function initTaskBoard() {
+  fetchTasks();
+  renderTasks();
+  setupModalCloseHandler();
+}
+
+// Wait until DOM is fully loaded
+document.addEventListener("DOMContentLoaded", initTaskBoard);
+
+
+
+
