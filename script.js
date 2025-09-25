@@ -31,6 +31,7 @@ message = "Unable to load tasks. Please try again.";
 
 
 function renderTasks(tasks) {
+// Renders tasks from the API into their respective columns based on status
 
   const todoColumn = document.querySelector('[data-status="todo"]');
   const doingColumn = document.querySelector('[data-status="doing"]');
@@ -41,6 +42,7 @@ function renderTasks(tasks) {
     const taskCard = document.createElement('div');
     taskCard.classList.add('task-card');
     taskCard.textContent = task.title;
+    taskCard.addEventListener('click', () => openTaskModal(task));
 
     if (task.status === 'todo') {
       todoColumn.appendChild(taskCard);
@@ -50,8 +52,7 @@ function renderTasks(tasks) {
       doneColumn.appendChild(taskCard);
     }
   });
-} // Renders tasks from the API into their respective columns based on status
-
+} 
 
 
 function cacheTasks(tasks) {
@@ -73,41 +74,49 @@ function loadTasks() {
 
 
 
+/**
+ * Opens the modal dialog with pre-filled task details.
+ */
+function openTaskModal(task) {
+  const modal = document.getElementById("task-modal");
+  document.getElementById("task-title").value = task.title;
+  document.getElementById("task-desc").value = task.description;
+  document.getElementById("task-status").value = task.status;
+
+  modal.showModal();
+  
+
+  document.getElementById('save-changes-btn').onclick = () => saveTaskChanges(task.id);
+  document.getElementById('delete-task-btn').onclick = () => deleteTask(task.id);
+}
+
+
+function saveTaskChanges(taskId) {
+  const updatedTitle = document.getElementById('task-title').value;
+  const updatedDescription = document.getElementById('task-description').value;
+  const updatedStatus = document.getElementById('task-status').value;
+
+  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+  const taskIndex = tasks.findIndex(t => t.id === taskId);
+  if (taskIndex !== -1) {
+    tasks[taskIndex].title = updatedTitle;
+    tasks[taskIndex].description = updatedDescription;
+    tasks[taskIndex].status = updatedStatus;
+  }
+
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+  renderTasks(tasks);
+  document.getElementById('task-modal').close()
+}
+
+
 
 
 
 /**
- * Opens the modal dialog with pre-filled task details.
- * @param {Object} task - The task object to display in the modal.
+ * Opens the modal dialog for creating a new task with empty fields.
  */
-function openTaskModal(task) {
-  const modal = document.getElementById("task-modal");
-  const titleInput = document.getElementById("task-title");
-  const descInput = document.getElementById("task-desc");
-  const statusSelect = document.getElementById("task-status");
-
-  titleInput.value = task.title;
-  descInput.value = task.description;
-  statusSelect.value = task.status;
-
-  modal.showModal();
-}
-const newModal = document.getElementById("new-task-modal");
-const addNewTask = document.getElementById("add-new-task")
-addNewTask.addEventListener("click", openNewTaskModal);
-
-
-
-function openNewTaskModal() {
-  const newModal = document.getElementById("new-task-modal");
-  const titleInput = document.getElementById("task-title");
-  const descInput = document.getElementById("task-desc");
-  const statusSelect = document.getElementById("task-status");
-
-  titleInput.value = "task.title";
-  descInput.value = "task.description";
-  statusSelect.value = "task.status";
-}
 
 
 

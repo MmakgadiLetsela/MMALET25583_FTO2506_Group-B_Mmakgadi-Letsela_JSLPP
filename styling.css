@@ -220,7 +220,7 @@ width: 10.25rem;
 height: 3rem;
 border: none;
 }
-#add-task:hover{
+#add-new-task:hover{
     cursor: pointer;
 }
 .mobile-text{
