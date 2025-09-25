@@ -11,12 +11,24 @@ function fetchTasks() {
     })
     .then(tasks => {
       renderTasks(tasks); // Function to display tasks in the UI
+      cacheTasks(tasks);  // Function to cache tasks in localStorage
     })
     .catch(error => {
       showErrorMessage("Unable to load tasks. Please try again.");
       console.error(error);
     });
 }; // If there is an error fetching tasks, show an error message
+
+function showErrorMessage(message) {
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'error-message'; 
+  errorDiv.textContent = message;
+
+message = "Unable to load tasks. Please try again.";
+}
+// Display error messages to the user
+
+
 
 function renderTasks(tasks) {
 
@@ -39,6 +51,27 @@ function renderTasks(tasks) {
     }
   });
 } // Renders tasks from the API into their respective columns based on status
+
+
+
+function cacheTasks(tasks) {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+} // Save tasks to localStorage for caching
+
+
+function loadTasks() {
+  const cachedTasks = localStorage.getItem('tasks');
+
+  if (cachedTasks) {
+    const tasks = JSON.parse(cachedTasks);
+    renderTasks(tasks);
+    return;
+  }
+} // Load tasks from localStorage if available
+
+
+
+
 
 
 

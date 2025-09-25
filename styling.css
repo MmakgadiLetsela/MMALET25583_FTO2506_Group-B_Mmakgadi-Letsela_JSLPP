@@ -223,6 +223,10 @@ border: none;
 #add-task:hover{
     cursor: pointer;
 }
+.mobile-text{
+    display: none;
+}
+
 
 
 .header-name-div {
@@ -531,10 +535,16 @@ form select {
     width: 2.0625rem;
     height: 2.0625rem;
     border-radius: 50%;
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .plus-sign{
+
+  .mobile-text{
     display: inline;
+  }
+  .laptop-text{
+    display: none;
   }
 }
