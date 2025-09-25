@@ -1,12 +1,9 @@
+<!DOCTYPE HTML>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;1,400&display=swap"
-      rel="stylesheet"
-    />
-
+  
     <link rel="stylesheet" href="./styling.css" />
     <link
       rel="icon"
@@ -82,22 +79,22 @@
 
         <!-- Add new task modal triggered when add new task button is clicked -->
         <dialog id="new-task-modal">
-            <form method="dialog" id="task-form">
+            <form method="dialog" id="new-task-form">
                 <div class="modal-header">
                 <h3>Add New Task</h3>
-                <button type="button" class="close-btn" id="close-modal-btn">
+                <button type="button" class="close-btn" id="close-new-modal-btn">
                     &times;
                 </button>
                 </div>
 
-                <label for="task-title">Title</label>
-                <input type="text" id="task-title" name="title" placeholder="eg. Complete chores." required/>
+                <label for="new-task-title">Title</label>
+                <input type="text" id="new-task-title" name="title" placeholder="eg. Complete chores." required/>
 
-                <label for="task-desc">Description</label>
-                <textarea id="task-desc" name="description" rows="4" place="eg. Sweep the kitchen or Clean the fridge." required></textarea>
+                <label for="new-task-description">Description</label>
+                <textarea id="new-task-description" name="description" rows="4" place="eg. Sweep the kitchen or Clean the fridge." required></textarea>
 
                 <label for="task-status">Status</label>
-                <select id="task-status" name="status" required>
+                <select id="new-task-status" title="new-status" required>
                 <option value="todo">todo</option>
                 <option value="doing">doing</option>
                 <option value="done">done</option>
@@ -115,7 +112,7 @@
             <h4 id="toDoText" class="columnHeader">TODO ()</h4>
           </div>
           <!-- Tasks container for TODO -->
-          <div class="tasks-container" data-status="todo"></div>
+          <div class="tasks-container" id="todo-container" data-status="todo"></div>
         </div>
         <!-- DOING Column -->
         <div class="column-div">
@@ -124,7 +121,7 @@
             <h4 id="doingText" class="columnHeader">DOING ()</h4>
           </div>
           <!-- Tasks container for DOING -->
-          <div class="tasks-container" data-status="doing"></div>
+          <div class="tasks-container" id= "doing-container" data-status="doing"></div>
         </div>
         <!-- DONE Column -->
         <div class="column-div">
@@ -133,7 +130,7 @@
             <h4 id="doneText" class="columnHeader">DONE ()</h4>
           </div>
           <!-- Tasks container for DONE -->
-          <div class="tasks-container" data-status="done"></div>
+          <div class="tasks-container" id= "done-container" data-status="done"></div>
         </div>
       </main>
     </div>
@@ -142,7 +139,7 @@
       <form method="dialog" id="task-form">
         <div class="modal-header">
           <h3>Task</h3>
-          <button type="button" class="close-btn" id="close-modal-btn">
+          <button type="button" class="close-btn" id="close--modal-btn">
             &times;
           </button>
         </div>
@@ -150,11 +147,11 @@
         <label for="task-title">Title</label>
         <input type="text" id="task-title" name="title" required />
 
-        <label for="task-desc">Description</label>
-        <textarea id="task-desc" name="description" rows="4"></textarea>
+        <label for="task-description">Description</label>
+        <textarea id="task-description" name="description" rows="4"></textarea>
 
         <label for="task-status">Status</label>
-        <select id="task-status" name="status" required>
+        <select id="task-status" title="status" required>
           <option value="todo">todo</option>
           <option value="doing">doing</option>
           <option value="done">done</option>
@@ -167,3 +164,7 @@
     </dialog>
   </body>
 </html>
+
+
+
+

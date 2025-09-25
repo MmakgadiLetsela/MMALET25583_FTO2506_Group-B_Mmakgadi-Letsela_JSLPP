@@ -9,10 +9,15 @@ function fetchTasks() {
       }
       return response.json();
     })
+
+
     .then(tasks => {
-      renderTasks(tasks); // Function to display tasks in the UI
-      cacheTasks(tasks);  // Function to cache tasks in localStorage
-    })
+  console.log("Fetched tasks:", tasks);
+  renderTasks(tasks);
+  cacheTasks(tasks);
+})
+
+
     .catch(error => {
       showErrorMessage("Unable to load tasks. Please try again.");
       console.error(error);
@@ -23,9 +28,9 @@ function showErrorMessage(message) {
   const errorDiv = document.createElement('div');
   errorDiv.className = 'error-message'; 
   errorDiv.textContent = message;
-
-message = "Unable to load tasks. Please try again.";
+  document.body.appendChild(errorDiv); 
 }
+
 // Display error messages to the user
 
 
@@ -36,6 +41,11 @@ function renderTasks(tasks) {
   const todoColumn = document.querySelector('[data-status="todo"]');
   const doingColumn = document.querySelector('[data-status="doing"]');
   const doneColumn = document.querySelector('[data-status="done"]');
+
+todoColumn.innerHTML = " ";
+doingColumn.innerHTML = " ";
+doneColumn.innerHTML = " ";
+
 
   tasks.forEach(task => {
     
@@ -52,7 +62,8 @@ function renderTasks(tasks) {
       doneColumn.appendChild(taskCard);
     }
   });
-} 
+  console.log("Rendered tasks", tasks);
+}  
 
 
 function cacheTasks(tasks) {
@@ -78,9 +89,10 @@ function loadTasks() {
  * Opens the modal dialog with pre-filled task details.
  */
 function openTaskModal(task) {
+ 
   const modal = document.getElementById("task-modal");
   document.getElementById("task-title").value = task.title;
-  document.getElementById("task-desc").value = task.description;
+  document.getElementById("task-description").value = task.description;
   document.getElementById("task-status").value = task.status;
 
   modal.showModal();
@@ -88,6 +100,7 @@ function openTaskModal(task) {
 
   document.getElementById('save-changes-btn').onclick = () => saveTaskChanges(task.id);
   document.getElementById('delete-task-btn').onclick = () => deleteTask(task.id);
+  
 }
 
 
@@ -106,7 +119,7 @@ function saveTaskChanges(taskId) {
   }
 
   localStorage.setItem('tasks', JSON.stringify(tasks));
-  renderTasks(tasks);
+  renderTasks(updatedTasks);
   document.getElementById('task-modal').close()
 }
 
@@ -133,22 +146,6 @@ function setupModalCloseHandler() {
 }
 
 
-/**
- * Creates a dark mode event triggered when the toggle is clicked
- * 
- * */
-// Dark mode toggle
-const darkModeToggle = document.getElementById("theme-toggle-button");
-darkModeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-  const logo= document.getElementById("logo");
-  if (document.body.classList.contains("dark-mode")) {
-    logo.src = "./assets/logo-dark.svg";
-  }
-  else {
-    logo.src = "./assets/logo-light.svg";
-  }
-});  // swap logo image based on mode
 
 
 /**
@@ -156,7 +153,6 @@ darkModeToggle.addEventListener("click", () => {
  */
 function initTaskBoard() {
   fetchTasks();
-  renderTasks();
   setupModalCloseHandler();
 }
 
