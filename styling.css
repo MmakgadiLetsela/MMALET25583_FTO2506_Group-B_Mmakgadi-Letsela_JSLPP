@@ -164,11 +164,9 @@ h4 {
     flex-direction: row;
     gap: 45px;
    
-
 }
 .hidden{
 transform: translateX(-100%)
-
 }
 
 #sidebar-toggle:hover{
@@ -176,16 +174,39 @@ transform: translateX(-100%)
     
 }
 
-
 #sidebar-icon{
     height: 1.5rem;
     width: 1.5rem;
     align-self: center;
     margin: 0 0 .3125rem .625rem;
+    
 }
-#show-sidebar-icon:before{
-content: "icon-show-sidebar.svg";
+
+#show-sidebar-icon{
+    background-color: #A8A4FF;
+    height: 3rem;
+    width: 3.5rem;
+    border-bottom-right-radius: 6.25rem;
+    border-top-right-radius: 6.25rem;
+    border: none;
+    display: none;
+    position: fixed;
+    top: 95%;
+    left: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1001; /* To ensure it appears above other content */
 }
+#show-sidebar-icon.hidden{
+display: block;
+}
+
+#hide-sidebar-icon{
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
 
 
 .hide-sidebar-text{
@@ -354,11 +375,11 @@ dialog {
 }
 
 /* Style the modal box */
-#task-modal::backdrop {
+.modal::backdrop {
   background: rgba(0, 0, 0, 0.3);
 }
 
-#task-modal {
+.modal {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -40%);
@@ -368,7 +389,7 @@ dialog {
   padding: 24px;
   background-color: #fff;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  /*font-family: "Plus Jakarta Sans", sans-serif;*/
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 /* Header */
@@ -468,6 +489,10 @@ form select {
 }
 #save-changes-btn:hover, #create-task-btn:hover{
     background-color: #A8A4FF;
+}
+#create-task-btn{
+  margin-top: 1.25rem;
+  width: 100%;
 }
 
 /* ========================

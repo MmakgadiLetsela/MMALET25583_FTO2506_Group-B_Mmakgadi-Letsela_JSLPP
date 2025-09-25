@@ -28,36 +28,45 @@
       </div>
 
       <!-- Interactive section with toggle button for light/dark mode and hide sidebar button. -->
-        <section id="interactive-section">
-            <div id="theme-toggle-div">
-                <img
-                    id="light-theme-icon"
-                    src="./assets/icon-light-theme.svg"
-                    alt="light-theme-icon"
-                    class="theme-icon"
-                />
-                <div id="theme-toggle-button">
-                    <div id="toggle-circle"></div>
-                </div>
-                <img
-                    id="dark-theme-icon"
-                    src="./assets/icon-dark-theme.svg"
-                    alt="dark-theme-icon"
-                    class="theme-icon"
-                />
-            </div>
-            <button id="sidebar-toggle" type="button">
-                <img
-                    src="./assets/icon-hide-sidebar.svg"
-                    alt="hide-sidebar-icon"
-                    id="sidebar-icon"
-                    class="hide-sidebar-icon"
-                />
-                <h3 class="hide-sidebar-text">
-                    Hide Sidebar
-                </h3>
-            </button>
-        </section>
+      <section id="interactive-section">
+        <div id="theme-toggle-div">
+          <img
+            id="light-theme-icon"
+            src="./assets/icon-light-theme.svg"
+            alt="light-theme-icon"
+            class="theme-icon"
+          />
+          <div id="theme-toggle-button">
+            <div id="toggle-circle"></div>
+          </div>
+          <img
+            id="dark-theme-icon"
+            src="./assets/icon-dark-theme.svg"
+            alt="dark-theme-icon"
+            class="theme-icon"
+          />
+        </div>
+        <div id="sidebar-toggle">
+          <button id="hide-sidebar-icon" type="button">
+            <img
+              src="./assets/icon-hide-sidebar.svg"
+              alt="hide-sidebar-icon"
+              class="sidebar-icon"
+            />
+          </button>
+
+          <button id="show-sidebar-icon" type="button">
+            <img
+              src="./assets/icon-show-sidebar.svg"
+              alt="show-sidebar-icon"
+              class="sidebar-icon"
+            />
+          </button>
+          <h3 class="hide-sidebar-text">
+            Hide Sidebar
+          </h3>
+        </div>
+      </section>
     </nav>
 
     <!-- Main Layout: Header with board title, add task button, and main content area for task columns. -->
@@ -77,32 +86,6 @@
           <span class="mobile-text">+</span>
           <span class="laptop-text">Add New Task</span>
         </button>
-
-        <!-- Add new task modal triggered when add new task button is clicked -->
-        <dialog id="new-task-modal">
-            <form method="dialog" id="new-task-form">
-                <div class="modal-header">
-                <h3>Add New Task</h3>
-                <button type="button" class="close-btn" id="close-new-modal-btn">
-                    &times;
-                </button>
-                </div>
-
-                <label for="new-task-title">Title</label>
-                <input type="text" id="new-task-title" name="title" placeholder="eg. Complete chores." required/>
-
-                <label for="new-task-description">Description</label>
-                <textarea id="new-task-description" name="description" rows="4" place="eg. Sweep the kitchen or Clean the fridge." required></textarea>
-
-                <label for="task-status">Status</label>
-                <select id="new-task-status" title="new-status" required>
-                <option value="todo">todo</option>
-                <option value="doing">doing</option>
-                <option value="done">done</option>
-                </select>
-                <button type="submit" id="create-task-btn">Create Task</button>
-            </form>
-        </dialog>
       </header>
 
       <main class="card-column-main">
@@ -136,7 +119,7 @@
       </main>
     </div>
     <!-- Modal: Displays each tasks details when the task is clicked -->
-    <dialog id="task-modal">
+    <dialog id="task-modal" class="modal">
       <form method="dialog" id="task-form">
         <div class="modal-header">
           <h3>Task</h3>

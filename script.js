@@ -148,27 +148,18 @@ function deleteTask(taskId) {
 // Sidebar toggle functionality
  document.getElementById("sidebar-toggle").addEventListener("click", () => {
    const sidebar = document.getElementById("side-bar-div");
-   const icon = document.getElementById("sidebar-icon");
+   const showIcon = document.getElementById("show-sidebar-icon");
    sidebar.classList.toggle("hidden");
+  showIcon.style.display = "block";
 
-if (sidebar.classList.contains("hidden")) {
-icon.classList.remove ("hide-sidebar-icon");
-icon.classList.add("show-sidebar-icon");
-}
-else {
-  icon.classList.remove ("show-sidebar-icon");
-  icon.classList.add("hide-sidebar-icon");
-}
+document.getElementById("hide-sidebar-icon").addEventListener("click", () => {
+  const sidebar = document.getElementById("side-bar-div");
+  const hideIcon = document.getElementById("hide-sidebar-icon");
+  sidebar.classList.remove("hidden");
+  hideIcon.style.display = "block";
+});
+
  })
-
-
-
-
-
-
-/**
- * Opens the modal dialog for creating a new task with empty fields.
- */
 
 
 
