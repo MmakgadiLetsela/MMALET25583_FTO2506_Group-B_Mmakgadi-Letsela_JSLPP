@@ -146,11 +146,20 @@ function deleteTask(taskId) {
 
 
 // Sidebar toggle functionality
- document.getElementById('sidebar-toggle').addEventListener('click', () => {
-  const sidebar = document.getElementById('side-bar-div');
-  sidebar.classList.toggle('hidden'); 
-});
+ document.getElementById("sidebar-toggle").addEventListener("click", () => {
+   const sidebar = document.getElementById("side-bar-div");
+   const icon = document.getElementById("sidebar-icon");
+   sidebar.classList.toggle("hidden");
 
+if (sidebar.classList.contains("hidden")) {
+icon.classList.remove ("hide-sidebar-icon");
+icon.classList.add("show-sidebar-icon");
+}
+else {
+  icon.classList.remove ("show-sidebar-icon");
+  icon.classList.add("hide-sidebar-icon");
+}
+ })
 
 
 

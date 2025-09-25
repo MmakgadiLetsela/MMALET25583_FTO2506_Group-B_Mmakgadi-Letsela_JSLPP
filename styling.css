@@ -53,6 +53,7 @@ body {
   border-right: 1px solid #e4ebfa; /* Light divider */
   width: var(--sidebar-width);
   height: 100vh;
+  transition: transform 0.5s ease;
 }
 
 #side-logo-div {
@@ -97,6 +98,10 @@ h4 {
   font-weight: bold;
   cursor: pointer;
   overflow: hidden; /* Prevents overflowed text/icons from showing */
+}
+
+.board-btn:hover {
+  background-color: #A8A4FF; /* Lighter purple on hover */
 }
 
 #interactive-section{
@@ -158,25 +163,30 @@ h4 {
     display: flex;
     flex-direction: row;
     gap: 45px;
-    transition: transform 0.5s ease;
+   
 
 }
-#sidebar-toggle.hidden{
+.hidden{
 transform: translateX(-100%)
 
 }
 
 #sidebar-toggle:hover{
     cursor: pointer;
+    
 }
 
 
-#hide-sidebar-icon{
+#sidebar-icon{
     height: 1.5rem;
     width: 1.5rem;
     align-self: center;
     margin: 0 0 .3125rem .625rem;
 }
+#show-sidebar-icon:before{
+content: "icon-show-sidebar.svg";
+}
+
 
 .hide-sidebar-text{
     color: var(--purple-color);
@@ -197,6 +207,7 @@ transform: translateX(-100%)
   overflow-x: hidden; /* Prevent horizontal scroll */
   width: 100%;
 }
+
 
 /* ===============
    Header Section
@@ -225,8 +236,10 @@ width: 10.25rem;
 height: 3rem;
 border: none;
 }
+
 #add-new-task:hover{
     cursor: pointer;
+    background-color: #A8A4FF;
 }
 
 
@@ -313,7 +326,7 @@ border: none;
   color: var(--primary-font-color);
   border-radius: 12px;
   box-shadow: var(--primary-box-shadow);
-  cursor: pointer; /* Indicate it's clickable */
+  cursor: pointer; 
   margin-bottom: 20px;
   font-size: 0.9375rem;
   font-weight: bold;
@@ -449,6 +462,12 @@ form select {
 
 #save-changes-btn:hover, #delete-task-btn:hover, #create-task-btn:hover{
     cursor: pointer;
+}
+#delete-task-btn:hover{
+    background-color: #FF9898;
+}
+#save-changes-btn:hover, #create-task-btn:hover{
+    background-color: #A8A4FF;
 }
 
 /* ========================
