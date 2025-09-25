@@ -30,7 +30,6 @@ function renderTasks(tasks) {
     taskCard.classList.add('task-card');
     taskCard.textContent = task.title;
 
-   
     if (task.status === 'todo') {
       todoColumn.appendChild(taskCard);
     } else if (task.status === 'doing') {

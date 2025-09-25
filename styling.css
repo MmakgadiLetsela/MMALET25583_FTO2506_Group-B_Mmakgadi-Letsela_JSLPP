@@ -237,12 +237,6 @@ border: none;
 /* ===============
    Board Columns
 ================ */
-.container {
-  display: flex;
-  flex-direction: column;
-  padding-left: 35px;
-  box-sizing: border-box;
-}
 
 .card-column-main {
   display: grid;
@@ -251,6 +245,7 @@ border: none;
     minmax(0, 304px)
   ); /* 3 columns with min size */
   gap: 8px; /* Space between columns */
+  margin-left: 2.1875rem;
 }
 
 .column-div {
@@ -302,7 +297,7 @@ border: none;
   flex-direction: column;
 }
 
-.task-div {
+.task-card {
   display: flex;
   align-items: center;
   padding-left: 15px;
