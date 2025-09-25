@@ -1,7 +1,8 @@
 
 
-// Fetch tasks from the backend API when the page loads
+// Fetch tasks from the backend API when the page first loads
 function fetchTasks() {
+  document.getElementById('loading-message').style.display = 'block';
   fetch('https://jsl-kanban-api.vercel.app/')
     .then(response => {
       if (!response.ok) {
@@ -9,17 +10,14 @@ function fetchTasks() {
       }
       return response.json();
     })
-
     .then(tasks => {
-  console.log("Fetched tasks:", tasks);
   cacheTasks(tasks);
   renderTasks(tasks);
- 
+ document.getElementById('loading-message').style.display = 'none';
 })
-
     .catch(error => {
       showErrorMessage("Unable to load tasks. Please try again.");
-      console.error(error);
+      document.getElementById('loading-message').style.display = 'none';
     });
 }; // If there is an error fetching tasks, show an error message
 
@@ -160,6 +158,17 @@ document.getElementById("hide-sidebar-icon").addEventListener("click", () => {
 });
 
  })
+
+function themeToggle() {
+
+
+}
+
+
+
+
+
+
 
 
 

@@ -30,17 +30,16 @@ body {
   font-size: 1rem; /* Base font size for rem scaling */
 }
 
-.dark-mode {
+body.dark-mode {
     --primary-color: #2B2C37;
     --secondary-color: #20212C;
     --primary-font-color: #FFFFFF;
     --secondary-font-color: #828fa3;
 }
 
-#header-board-name.dark-mode{
+#header-board-name.dark-mode, .hide-sidebar-text.dark-mode, #add-new-task.dark-mode{
     color: #FFFFFF;
 }
-
 
 
 /* ================
@@ -137,6 +136,8 @@ h4 {
     height: 1.25rem;
     background-color: var(--purple-color);
     border-radius: 6.25rem;
+    border: none;
+    display: flex;
 }
 
 #theme-toggle-button:hover{
@@ -148,7 +149,8 @@ h4 {
     width: .875rem;
     border-radius: 50%;
     background-color: var(--primary-color);
-    margin: 3px
+    margin-top: .125rem;
+    align-self: left;
 
 }
 
@@ -466,7 +468,7 @@ form select {
 
 }
 
-#save-changes-btn, #delete-task-btn, #create-task-btn{
+#save-changes-btn, #delete-task-btn{
     background-color: var(--purple-color);
     border-radius: 6.25rem;
     color: var(--primary-color);
@@ -481,19 +483,34 @@ form select {
     background-color: #EA5555;
 }
 
-#save-changes-btn:hover, #delete-task-btn:hover, #create-task-btn:hover{
+#save-changes-btn:hover, #delete-task-btn:hover{
     cursor: pointer;
 }
 #delete-task-btn:hover{
     background-color: #FF9898;
 }
-#save-changes-btn:hover, #create-task-btn:hover{
+#save-changes-btn:hover{
     background-color: #A8A4FF;
 }
-#create-task-btn{
-  margin-top: 1.25rem;
-  width: 100%;
+
+/* ========================
+    Loading Message
+======================== */
+#loading-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--purple-color);
+  color: var(--primary-color);
+  padding: 20px 40px;
+  border-radius: 8px;
+  box-shadow: var(--primary-box-shadow);
+  font-size: 1.25rem;
+  display: none; /* Hidden by default */
+  z-index: 1000; 
 }
+
 
 /* ========================
    Responsive Styles
