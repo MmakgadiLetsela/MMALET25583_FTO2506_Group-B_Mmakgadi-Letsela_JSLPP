@@ -10,13 +10,12 @@ function fetchTasks() {
       return response.json();
     })
 
-
     .then(tasks => {
   console.log("Fetched tasks:", tasks);
-  renderTasks(tasks);
   cacheTasks(tasks);
+  renderTasks(tasks);
+ 
 })
-
 
     .catch(error => {
       showErrorMessage("Unable to load tasks. Please try again.");
@@ -77,9 +76,12 @@ function loadTasks() {
   if (cachedTasks) {
     const tasks = JSON.parse(cachedTasks);
     renderTasks(tasks);
-    return;
   }
-} // Load tasks from localStorage if available
+    else {
+    fetchTasks();
+  }
+  }
+ // Load tasks from localStorage if available, otherwise fetch from API
 
 
 
@@ -123,6 +125,27 @@ function saveTaskChanges(taskId) {
   document.getElementById('task-modal').close()
 }
 
+function deleteTask(taskId) {
+  const confirmDelete = confirm("Are you sure you want to delete this task permanently?");
+  if (!confirmDelete) return; // 
+
+  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+  // Remove the task by filtering it out
+  const updatedTasks = tasks.filter(task => task.id !== taskId);
+
+  // Save the new list to localStorage
+  localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+
+  // Re-render the board
+  renderTasks(updatedTasks);
+
+  // Close the modal
+  document.getElementById('task-modal').close();
+}
+
+
+
 
 
 
@@ -152,7 +175,7 @@ function setupModalCloseHandler() {
  * Initializes the task board and modal handlers.
  */
 function initTaskBoard() {
-  fetchTasks();
+  loadTasks();
   setupModalCloseHandler();
 }
 
