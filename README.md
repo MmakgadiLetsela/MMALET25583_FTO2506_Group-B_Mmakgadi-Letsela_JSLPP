@@ -20,6 +20,10 @@ This project involves **deploying a Kanban app to Netlify**, ensuring the app's 
 
 
 ## Set-up Instructions 🚧
+- Ensure you have VS Code to open the actual code and a web browser to view the project on the web.
+- Ensure you have github to view the project url. 
+- Click on the url in the github to open the project in the browser.
+- This project supports Chrome, Safari, Mozilla and Explorer.
 
 ## Interaction Instructions 🔭
 - Refresh the tab to fetch the initial tasks from the API.
