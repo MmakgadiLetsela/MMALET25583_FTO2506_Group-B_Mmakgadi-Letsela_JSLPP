@@ -9,8 +9,14 @@ This project involves **deploying a Kanban app to Netlify**, ensuring the app's 
 - CSS3
 - Javascript
 
-## Feautures Created and Updated ⚒️
--
+## Feautures Created  ⚒️
+- Tasks are fetched from API upon initial load and a loading message is shown. If fetching has failed the user is informed.
+- Tasks are saved to localStorage so that they persist on page load.
+- Tasks in the modal can be clicked to edit the details and they are then saved to localStorage and displayed.
+- Tasks can be deleted and a confrimation message is displayed to the user. Once confirmed, the task is deleted from the board and localStorage.
+- A sidebar with details is visible and can be toggled so that it is hidden. A icon appears when it is hidden and can be clicked to view the sidebar again.
+- A theme toggle turns the theme from light to dark and is saved so that if loaded, the theme persists.
+- The app is mobile responsive, including the interactive sections.
 
 
 ## Set-up Instructions
