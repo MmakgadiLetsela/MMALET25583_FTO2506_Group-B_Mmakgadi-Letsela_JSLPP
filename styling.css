@@ -30,15 +30,13 @@ body {
   font-size: 1rem; /* Base font size for rem scaling */
 }
 
+/* Dark Mode Variables */
 body.dark-mode {
     --primary-color: #2B2C37;
     --secondary-color: #20212C;
     --primary-font-color: #FFFFFF;
     --secondary-font-color: #828fa3;
-}
-
-#header-board-name.dark-mode, .hide-sidebar-text.dark-mode, #add-new-task.dark-mode{
-    color: #FFFFFF;
+    --purple-color: #635FC7;
 }
 
 
@@ -81,7 +79,7 @@ h4 {
   letter-spacing: 0.125rem; /* Makes heading more spaced */
 }
 
-.board-btn {
+#headline-button {
   font-family: inherit;
   display: flex;
   align-items: center;
@@ -465,7 +463,6 @@ form select {
     justify-content:space-evenly;
     width: 100%;
     margin-top: 1.25rem;
-
 }
 
 #save-changes-btn, #delete-task-btn{
@@ -478,6 +475,9 @@ form select {
     width: 12.5rem;
     height: 2.5rem;
     border: none;
+}
+body.dark-mode #save-changes-btn, body.dark-mode #delete-task-btn{
+    color: var(--primary-font-color);
 }
 #delete-task-btn{
     background-color: #EA5555;
@@ -510,6 +510,24 @@ form select {
   display: none; /* Hidden by default */
   z-index: 1000; 
 }
+
+/* ========================
+   Dark Mode Button Styles
+======================== */
+body.dark-mode .board-btn{
+  color: var(--primary-font-color) !important; 
+  background-color: var(--purple-color) !important;
+}
+body.dark-mode .hide-sidebar-text{
+    color: var(--primary-font-color);
+}
+body.dark-mode #theme-toggle-button{
+  background-color: var(--secondary-color)
+}
+body.dark-mode #toggle-circle{
+  background-color: var(--primary-font-color)
+}
+
 
 
 /* ========================

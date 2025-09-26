@@ -24,12 +24,12 @@
 
       <div class="boards-nav-links-div" id="boards-nav-links-div">
         <h4 id="headline-sidepanel">ALL BOARDS (1)</h4>
-        <button type="button" class="board-btn">Launch Career</button>
+        <button type="button" id="headline-button" class="board-btn">Launch Career</button>
       </div>
 
       <!-- Interactive section with toggle button for light/dark mode and hide sidebar button. -->
       <section id="interactive-section">
-        <div id="theme-toggle-div">
+        <div id="theme-toggle-div" class="board-btn">
           <img
             id="light-theme-icon"
             src="./assets/icon-light-theme.svg"
@@ -46,8 +46,8 @@
             class="theme-icon"
           />
         </div>
-        <div id="sidebar-toggle">
-          <button id="hide-sidebar-icon" type="button">
+        <div id="sidebar-toggle" class="board-btn">
+          <button id="hide-sidebar-icon" type="button" class="board-btn">
             <img
               src="./assets/icon-hide-sidebar.svg"
               alt="hide-sidebar-icon"
@@ -81,7 +81,7 @@
             Launch Career
           </h2>
         </div>
-        <button id="add-new-task" type="button">
+        <button id="add-new-task" type="button" class="board-btn">
           <span class="mobile-text">+</span>
           <span class="laptop-text">Add New Task</span>
         </button>
