@@ -69,7 +69,7 @@ body.dark-mode {
   color: var(--primary-font-color);
 }
 
-#headline-sidepanel {
+.headline-sidepanel {
   padding: 0 12px 0 50px; /* Aligns section content from left and right */
 }
 
@@ -79,7 +79,7 @@ h4 {
   letter-spacing: 0.125rem; /* Makes heading more spaced */
 }
 
-#headline-button {
+#headline-button, #mobile-headline-button {
   font-family: inherit;
   display: flex;
   align-items: center;
@@ -109,7 +109,7 @@ h4 {
 
 } 
 
-#theme-toggle-div{
+#theme-toggle-div, #mobile-theme-toggle-div{
     height: 3rem;
     width: 15rem;
     background-color: var(--secondary-color);
@@ -278,6 +278,15 @@ border: none;
 
 .logo-mobile {
   display: none; /* Hidden on desktop; shown on smaller screens */
+}
+
+.mobile-menu.hidden {
+  display: none; 
+}
+#mobile-menu-div{
+  display: flex;
+  gap: .9375rem;
+  flex-direction: column;
 }
 
 /* ===============
