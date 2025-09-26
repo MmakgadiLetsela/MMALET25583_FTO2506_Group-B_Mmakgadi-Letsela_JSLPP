@@ -45,7 +45,7 @@ This project involves **deploying a Kanban app to Netlify**, ensuring the app's 
 
 
 ## Netlify Deployment Link 🌐
-<My Website Link>[]
+<My Website Link>[https://mmakgadi-letsela-kanban-board.netlify.app/]
 
 ## Link to My Presentation on Loom 🎦
 <My Presentation Link>[]
