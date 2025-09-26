@@ -22,7 +22,11 @@ This project involves **deploying a Kanban app to Netlify**, ensuring the app's 
 ## Set-up Instructions
 
 ## Interaction Instructions
-
+- Refresh the tab to fetch the initial tasks from the API.
+- Click on the "hide sidebar" button to hide the sidebar and click on the googly eyes that appear when you want the sidebar back.
+- Click on the sun-and-moon theme toggle to switch between light and dark mode.
+- Click on any of the tasks on the board to open a modal that lets you edit any of its details.
+- Reload the page to see your changes persist.
 ## Working Usage Examples
 
 
