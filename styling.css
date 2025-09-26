@@ -79,6 +79,8 @@ h4 {
   letter-spacing: 0.125rem; /* Makes heading more spaced */
 }
 
+/* Buttons*/ 
+
 #headline-button, #mobile-headline-button {
   font-family: inherit;
   display: flex;
@@ -96,10 +98,15 @@ h4 {
   cursor: pointer;
   overflow: hidden; /* Prevents overflowed text/icons from showing */
 }
+#headline-button:hover{
+  background-color:  #A8A4FF;
+}
 
 .board-btn:hover {
   background-color: #A8A4FF; /* Lighter purple on hover */
 }
+
+/* Interactive section*/
 
 #interactive-section{
     margin: auto 0 1.25rem 0;
@@ -152,7 +159,6 @@ h4 {
 
 }
 
-
 #sidebar-toggle{
     background-color: var(--secondary-color);
     height: 3.125rem;
@@ -176,7 +182,6 @@ transform: translateX(-100%)
     cursor: pointer;
     
 }
-
 #sidebar-icon{
     height: 1.5rem;
     width: 1.5rem;
@@ -185,8 +190,10 @@ transform: translateX(-100%)
     
 }
 
+/* Icon to show when sidebar is hidden*/
+
 #show-sidebar-icon{
-    background-color: #A8A4FF;
+    background-color: var(--purple-color);
     height: 3rem;
     width: 3.5rem;
     border-bottom-right-radius: 6.25rem;
@@ -198,8 +205,8 @@ transform: translateX(-100%)
     transform: translateY(-50%);
     cursor: pointer;
     z-index: 1001; /* To ensure it appears above other content */
-
 }
+
 
 #hide-sidebar-icon{
   border: none;
@@ -209,8 +216,6 @@ transform: translateX(-100%)
 #hide-sidebar-icon .hidden{
   display: none;
 }
-
-
 
 .hide-sidebar-text{
     color: var(--purple-color);
@@ -231,7 +236,6 @@ transform: translateX(-100%)
   overflow-x: hidden; /* Prevent horizontal scroll */
   width: 100%;
 }
-
 
 /* ===============
    Header Section
@@ -412,6 +416,7 @@ body.dark-mode .modal-header h3{
     color: var(--primary-font-color);
 }
 
+/* Close Button*/
 
 .close-btn {
   background: none;
