@@ -36,7 +36,7 @@
             alt="light-theme-icon"
             class="theme-icon"
           />
-          <button id="theme-toggle-button" type="button">
+          <button id="theme-toggle-button" class="theme-toggle-button" type="button">
             <div id="toggle-circle"></div>
           </button>
           <img
@@ -54,19 +54,20 @@
               class="sidebar-icon"
             />
           </button>
-          <button id="show-sidebar-icon" type="button">
-            <img
-              src="./assets/icon-show-sidebar.svg"
-              alt="show-sidebar-icon"
-              class="sidebar-icon"
-            />
-          </button>
           <h3 class="hide-sidebar-text">
             Hide Sidebar
           </h3>
         </div>
       </section>
     </nav>
+
+    <button id="show-sidebar-icon" type="button">
+      <img
+        src="./assets/icon-show-sidebar.svg"
+        alt="show-sidebar-icon"
+        class="sidebar-icon"
+      />
+    </button>
 
     <!-- Main Layout: Header with board title, add task button, and main content area for task columns. -->
     <div id="layout">
@@ -77,8 +78,8 @@
             alt="logo-mobile"
             class="logo-mobile"
           />
-          <div class="overlay">
-            <div id="mobile-menu-div">
+          <div class="hidden" id="overlay">
+            <div id="mobile-menu-div" class="hidden">
               <button class="close-btn" id="mobile-close-btn">✖</button>
               <div class="boards-nav-links-div">
                 <h4 class="headline-sidepanel" id="mobile-headline">ALL BOARDS (1)</h4>
@@ -91,7 +92,7 @@
                   alt="light-theme-icon"
                   class="theme-icon"
                 />
-                <button id="theme-toggle-button" type="button">
+                <button type="button" class="theme-toggle-button" id="mobile-theme-toggle-button">
                   <div id="toggle-circle"></div>
                 </button>
                 <img

@@ -1,13 +1,15 @@
-
+// saved theme is loaded from local storage
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme === "dark") {
   document.body.classList.add("dark-mode");
 }
 
+/**
+ * Function used to fetch tasks from the API when the webpage is first opened.
+ * If there is an error then a message is displayed to the user.  
+ * @returns response.json()
+ */
 
-
-
-// Fetch tasks from the backend API when the page first loads
 function fetchTasks() {
   document.getElementById('loading-message').style.display = 'block';
   fetch('https://jsl-kanban-api.vercel.app/')
@@ -28,6 +30,10 @@ function fetchTasks() {
     });
 }; // If there is an error fetching tasks, show an error message
 
+
+/**
+ * Function used to show error message upon failure of fetching tasks from API. 
+ */
 function showErrorMessage(message) {
   const errorDiv = document.createElement('div');
   errorDiv.className = 'error-message'; 
@@ -38,9 +44,11 @@ function showErrorMessage(message) {
 // Display error messages to the user
 
 
-
+/**
+ * /Function that renders tasks from the API into their respective columns based on status along with all their details
+ * @param {*} tasks 
+ */
 function renderTasks(tasks) {
-// Renders tasks from the API into their respective columns based on status
 
   const todoColumn = document.querySelector('[data-status="todo"]');
   const doingColumn = document.querySelector('[data-status="doing"]');
@@ -70,11 +78,18 @@ doneColumn.innerHTML = " ";
 }  
 
 
+/**
+ * Function that saves tasks to localStorage for caching. 
+ * @param {*} tasks 
+ */
 function cacheTasks(tasks) {
   localStorage.setItem('tasks', JSON.stringify(tasks));
-} // Save tasks to localStorage for caching
+} 
 
 
+/**
+ * Function to load tasks from localStorage whenever possible, otherwise fetch tasks from API.
+ */
 function loadTasks() {
   const cachedTasks = localStorage.getItem('tasks');
 
@@ -86,11 +101,11 @@ function loadTasks() {
     fetchTasks();
   }
   }
- // Load tasks from localStorage if available, otherwise fetch from API
+ 
 
 
 /**
- * Opens the modal dialog with pre-filled task details.
+ * Opens the modal dialog with pre-filled task details. 
  */
 function openTaskModal(task) {
  
@@ -108,6 +123,10 @@ function openTaskModal(task) {
 }
 
 
+/**
+ * Function used to save changes made to the modal to local storage so that changes persist after page load.
+ * @param  {*} taskId 
+ */
 function saveTaskChanges(taskId) {
   const updatedTitle = document.getElementById('task-title').value;
   const updatedDescription = document.getElementById('task-description').value;
@@ -127,16 +146,21 @@ function saveTaskChanges(taskId) {
   document.getElementById('task-modal').close()
 }
 
+/**
+ * Function that deletes tasks from the modal when prompted and confirmed by user. User get a confirmation message. 
+ * @param {*} taskId 
+ * @returns 
+ */
 function deleteTask(taskId) {
   const confirmDelete = confirm("Are you sure you want to delete this task permanently?");
   if (!confirmDelete) return; // 
 
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-  // Remove the task by filtering it out
+  // Removes the task by filtering it out
   const updatedTasks = tasks.filter(task => task.id !== taskId);
 
-  // Save the new list to localStorage
+  // Saves the new list to localStorage
   localStorage.setItem('tasks', JSON.stringify(updatedTasks));
 
   
@@ -149,60 +173,85 @@ function deleteTask(taskId) {
 
 // Sidebar toggle functionality
 const sidebar = document.getElementById("side-bar-div");
-const hideSidebarIcon = document.getElementById("hide-sidebar-icon");
+const hideSidebar = document.getElementById("sidebar-toggle");
 const showSidebarIcon = document.getElementById("show-sidebar-icon");
 
-hideSidebarIcon.addEventListener("click", () => {
+hideSidebar.addEventListener("click", () => {
   sidebar.classList.add("hidden");
-  hideSidebarIcon.classList.add("hidden");
+  hideSidebar.classList.add("hidden");
   showSidebarIcon.classList.remove("hidden");
 });
 
 showSidebarIcon.addEventListener("click", () => {
   sidebar.classList.remove("hidden");
-  hideSidebarIcon.classList.remove("hidden");
+  hideSidebar.classList.remove("hidden");
   showSidebarIcon.classList.add("hidden");
 });
+// sidebar is hidden when the button is clicked and shown when the icon is clicked
  
+
+// Dark Mode Toggle
+const darkModeToggles = [
+document.getElementById("theme-toggle-button"),
+document.getElementById("mobile-theme-toggle-button"),
+];
+
 /**
- * Creates a dark mode event triggered when the toggle is clicked
- * 
- * */
+ * Toggles dark mode and updates logo and local storage.
+ */
 
-const darkModeToggle = document.getElementById("theme-toggle-button");
-darkModeToggle.addEventListener("click", () => {
+ function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
-
   const logo = document.getElementById("logo");
   if (document.body.classList.contains("dark-mode")) {
     logo.src = "./assets/logo-dark.svg";
     localStorage.setItem("theme", "dark");
-  }
-  else {
+  } else {
     logo.src = "./assets/logo-light.svg";
     localStorage.setItem("theme", "light");
-  }
-});  // swap logo image based on mode
+} 
+ } // Toggles dark mode class on body
+// Also changes logo based on theme.
 
-// Add toggle to logo so it acts as button to show/hide panel menu
-const mobileLogo = document.getElementsByClassName("logo-mobile")
-const mobileMenu = document.getElementsById("mobile-menu-div")
-const mobileOverlay = document.getElementsByClassName("overlay")
+darkModeToggles.forEach(button => {
+  button.addEventListener("click", toggleDarkMode);
+}); // Event listeners for both buttons to toggle dark mode
 
+
+ 
+
+
+
+
+
+
+
+
+// Add toggle to logo so it acts as button to show/hide mobile menu
+const mobileLogo = document.querySelector(".logo-mobile")
+const mobileMenu = document.getElementById("mobile-menu-div")
+const mobileOverlay = document.getElementById("overlay")
+const mobileMenuCloseButton = document.getElementById("mobile-close-btn")
 
 mobileLogo.addEventListener("click", () => {
-  menu.classList.toggle("hidden");
-});
+  mobileOverlay.classList.remove("hidden");
+  mobileMenu.classList.remove("hidden")
+}); // the overlay and mobile menu are visible when the logo is clicked.
+
+mobileMenuCloseButton.addEventListener("click", () => {
+  mobileOverlay.classList.add("hidden");
+  mobileMenu.classList.add("hidden")
+}); // the close button closes the mobile menu
 
 /**
  * Sets up modal close behavior.
  */
 function setupModalCloseHandler() {
   const modal = document.getElementById("task-modal");
-  const closeBtn = document.getElementById("close-modal-btn");
+  const closeBtn = document.getElementById("close-modal-btn"); 
 
   closeBtn.addEventListener("click", () => {
-    modal.close();
+    modal.close(); // when the close button of the modal is clicked, the modal closes.
   });
 }
 
