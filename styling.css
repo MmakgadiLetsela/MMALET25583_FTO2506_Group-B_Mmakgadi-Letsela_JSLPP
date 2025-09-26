@@ -404,6 +404,10 @@ dialog {
   margin: 0;
   font-size: 1.125rem;
 }
+body.dark-mode .modal-header h3{
+    color: var(--primary-font-color);
+}
+
 
 .close-btn {
   background: none;
@@ -454,6 +458,12 @@ form select {
 
   background-size: 1.4rem;
   padding-right: 1rem;
+}
+body.dark-mode form select{
+    background-color: var(--primary-font-color)
+}
+#task-title{
+  font-weight: 700;
 }
 
 /* Modal Footer*/
@@ -512,7 +522,7 @@ body.dark-mode #save-changes-btn, body.dark-mode #delete-task-btn{
 }
 
 /* ========================
-   Dark Mode Button Styles
+   Dark Mode Styles
 ======================== */
 body.dark-mode .board-btn{
   color: var(--primary-font-color) !important; 
@@ -526,6 +536,9 @@ body.dark-mode #theme-toggle-button{
 }
 body.dark-mode #toggle-circle{
   background-color: var(--primary-font-color)
+}
+body.dark-mode .modal{
+  background-color: var(--primary-color);
 }
 
 

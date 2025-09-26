@@ -1,4 +1,11 @@
 
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") {
+  document.body.classList.add("dark-mode");
+}
+
+
+
 
 // Fetch tasks from the backend API when the page first loads
 function fetchTasks() {
@@ -167,15 +174,17 @@ document.getElementById("hide-sidebar-icon").addEventListener("click", () => {
 const darkModeToggle = document.getElementById("theme-toggle-button");
 darkModeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
+
   const logo = document.getElementById("logo");
   if (document.body.classList.contains("dark-mode")) {
     logo.src = "./assets/logo-dark.svg";
+    localStorage.setItem("theme", "dark");
   }
   else {
     logo.src = "./assets/logo-light.svg";
+    localStorage.setItem("theme", "light");
   }
 });  // swap logo image based on mode
-
 
 
 
