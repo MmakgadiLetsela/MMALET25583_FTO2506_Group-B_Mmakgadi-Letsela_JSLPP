@@ -269,8 +269,6 @@ border: none;
     background-color: #A8A4FF;
 }
 
-
-
 .header-name-div {
   display: flex;
   align-items: center;
@@ -280,7 +278,7 @@ border: none;
   display: none; /* Hidden on desktop; shown on smaller screens */
 }
 
-.mobile-menu.hidden {
+#mobile-menu-div.hidden {
   display: none; 
 }
 #mobile-menu-div{
@@ -679,4 +677,40 @@ body.dark-mode .modal{
 #save-changes-btn, #delete-task-btn, #create-task-btn{
   width: 100%;
 }
+
+#mobile-menu-div{
+  position: relative;
+  top: 5rem;
+  right: .9375rem;
+  padding: .625rem;
+  border-radius: .625rem;
+  z-index: 1001;
+  width: 90%;
+  background-color: var(--primary-color);
+  display: flex;
+  gap: .625rem;
+  flex-direction: column;
+
+}
+
+
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2)
+
+}
+#header-board-name{
+  display: none
+}
+}
+#mobile-close-btn{
+  position: absolute;
+  top: .625rem;
+  right: .625rem;
+  font-size: 2rem;
+  cursor: pointer;
 }

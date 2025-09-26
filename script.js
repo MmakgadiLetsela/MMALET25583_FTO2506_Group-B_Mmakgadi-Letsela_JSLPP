@@ -184,9 +184,15 @@ darkModeToggle.addEventListener("click", () => {
   }
 });  // swap logo image based on mode
 
+// Add toggle to logo so it acts as button to show/hide panel menu
+const mobileLogo = document.getElementsByClassName("logo-mobile")
+const mobileMenu = document.getElementsById("mobile-menu-div")
+const mobileOverlay = document.getElementsByClassName("overlay")
 
 
-
+mobileLogo.addEventListener("click", () => {
+  menu.classList.toggle("hidden");
+});
 
 /**
  * Sets up modal close behavior.
