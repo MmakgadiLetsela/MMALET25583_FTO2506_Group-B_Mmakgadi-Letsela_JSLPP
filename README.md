@@ -45,10 +45,10 @@ This project involves **deploying a Kanban app to Netlify**, ensuring the app's 
 
 
 ## Netlify Deployment Link 🌐
-<My Website Link>[https://mmakgadi-letsela-kanban-board.netlify.app/]
+[https://mmakgadi-letsela-kanban-board.netlify.app/]
 
-## Link to My Presentation on Loom 🎦
-<My Presentation Link>[]
+## Link to My Presentation on Zoom 🎦
+[https://drive.google.com/file/d/14mVg3arpTQx47H2syz9VQrVFn8KLHQqE/view?usp=sharing]
 
 ## Acknowledgments 🧑‍🤝‍🧑
 - This project was completed by Mmakgadi Bonolo Letsela for JSL Portfolio Piece Project.
