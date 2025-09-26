@@ -168,6 +168,9 @@ h4 {
 .hidden{
 transform: translateX(-100%)
 }
+#side-bar-div .hidden{
+    display: none;
+}
 
 #sidebar-toggle:hover{
     cursor: pointer;
@@ -181,15 +184,17 @@ transform: translateX(-100%)
     margin: 0 0 .3125rem .625rem;
     
 }
-
 #show-sidebar-icon{
+  display: none
+}
+
+#show-sidebar-icon .hidden{
     background-color: #A8A4FF;
     height: 3rem;
     width: 3.5rem;
     border-bottom-right-radius: 6.25rem;
     border-top-right-radius: 6.25rem;
     border: none;
-    display: none;
     position: fixed;
     top: 95%;
     left: 0;
@@ -197,14 +202,15 @@ transform: translateX(-100%)
     cursor: pointer;
     z-index: 1001; /* To ensure it appears above other content */
 }
-#show-sidebar-icon.hidden{
-display: block;
-}
+
 
 #hide-sidebar-icon{
   border: none;
   background: none;
   cursor: pointer;
+}
+#hide-sidebar-icon .hidden{
+  display: none;
 }
 
 

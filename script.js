@@ -89,9 +89,6 @@ function loadTasks() {
  // Load tasks from localStorage if available, otherwise fetch from API
 
 
-
-
-
 /**
  * Opens the modal dialog with pre-filled task details.
  */
@@ -151,21 +148,22 @@ function deleteTask(taskId) {
 
 
 // Sidebar toggle functionality
- document.getElementById("sidebar-toggle").addEventListener("click", () => {
-   const sidebar = document.getElementById("side-bar-div");
-   const showIcon = document.getElementById("show-sidebar-icon");
-   sidebar.classList.toggle("hidden");
-  showIcon.style.display = "block";
+const sidebar = document.getElementById("side-bar-div");
+const hideSidebarIcon = document.getElementById("hide-sidebar-icon");
+const showSidebarIcon = document.getElementById("show-sidebar-icon");
 
-document.getElementById("hide-sidebar-icon").addEventListener("click", () => {
-  const sidebar = document.getElementById("side-bar-div");
-  const hideIcon = document.getElementById("hide-sidebar-icon");
-  sidebar.classList.remove("hidden");
-  hideIcon.style.display = "block";
+hideSidebarIcon.addEventListener("click", () => {
+  sidebar.classList.add("hidden");
+  hideSidebarIcon.classList.add("hidden");
+  showSidebarIcon.classList.remove("hidden");
 });
 
- })
-
+showSidebarIcon.addEventListener("click", () => {
+  sidebar.classList.remove("hidden");
+  hideSidebarIcon.classList.remove("hidden");
+  showSidebarIcon.classList.add("hidden");
+});
+ 
 /**
  * Creates a dark mode event triggered when the toggle is clicked
  * 
@@ -185,9 +183,6 @@ darkModeToggle.addEventListener("click", () => {
     localStorage.setItem("theme", "light");
   }
 });  // swap logo image based on mode
-
-
-
 
 
 
